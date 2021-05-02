@@ -1,4 +1,5 @@
 <include a CircleCI status badge, here>
+[![CircleCI](https://circleci.com/gh/circleci/SamehGaber/4th-Project-AWS.svg?style=svg)](https://circleci.com/gh/circleci/SamehGaber/4th-Project-AWS)
 
 ## Project Overview
 
@@ -25,18 +26,32 @@ You can find a detailed [project rubric, here](https://review.udacity.com/#!/rub
 
 ## Setup the Environment
 
-* Create a virtualenv and activate it
-* Run `make install` to install the necessary dependencies
+* Create a virtualenv and activate it by following the below commands:
+python3 -m venv ~/.devops
+source ~/.devops/bin/activate
 
+* Run `make install` to install the necessary dependencies
+make sure also to install pylint and hadolint : 
+pip install pylint
+brew install hadolint
 ### Running `app.py`
 
 1. Standalone:  `python app.py`
 2. Run in Docker:  `./run_docker.sh`
+ run_docker.sh script does 2 main tasks 
+  1) build the docker image based on the confiugred Dockerfile
+      docker build --tag=test .
+   2) expose the flask app on port 8000 
+      docker run -p 8000:80 -it test bash
 3. Run in Kubernetes:  `./run_kubernetes.sh`
-
+   by first pulling the docker image from Dockerhub and then fire a container and expose on port 8000 
+   kubectl run mypod -it --image=199420172020/test --port=80
+   kubectl port-forward pods/mypod 8000:80
 ### Kubernetes Steps
 
 * Setup and Configure Docker locally
 * Setup and Configure Kubernetes locally
 * Create Flask app in Container
 * Run via kubectl
+
+CircleCi integeration : https://app.circleci.com/pipelines/github/SamehGaber/4th-Project-AWS 
