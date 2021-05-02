@@ -1,0 +1,37 @@
+
+choose linux platform for cloud9 environment 
+ssh-keygen -t rsa 
+cd <path of public key> 
+
+python3 -m venv ~/.devops
+source ~/.devops/bin/activate
+make install
+pip install pylint
+pip install ipython 
+sudo apt install linuxbrew-wrapper
+sudo passwd ubuntu 
+brew install hadolint
+then : 
+ - sudo apt-get install build-essential 
+- Add Linuxbrew to your ~/.bash_profile by running
+    echo 'export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"' >>~/.bash_profile
+    echo 'export MANPATH="/home/linuxbrew/.linuxbrew/share/man:$MANPATH"' >>~/.bash_profile
+    echo 'export INFOPATH="/home/linuxbrew/.linuxbrew/share/info:$INFOPATH"' >>~/.bash_profile
+- Add Linuxbrew to your PATH
+    PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+
+wget -O /bin/hadolint https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+brew install hadolint
+
+Very Important: 
+1) remove the "f" in app.py line 23 , so the make lint pass with no errors
+2) edit the docker file , run section to be as follow 
+RUN pip install --no-cache-dir --upgrade pip &&\
+   pip install --no-cache-dir requirements.txt
+the below two commands are not necessary
+PATH="/home/linuxbrew/.linuxbrew/Cellar/hadolint/2.3.0/bin:$PATH" ( not a must)
+echo 'export PATH="/home/linuxbrew/.linuxbrew/Cellar/hadolint/2.3.0/bin:$PATH"' >>~/.bash_profile
+
+________
+hadolint URL: https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
+
