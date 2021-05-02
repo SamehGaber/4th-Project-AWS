@@ -35,3 +35,7 @@ echo 'export PATH="/home/linuxbrew/.linuxbrew/Cellar/hadolint/2.3.0/bin:$PATH"' 
 ________
 hadolint URL: https://github.com/hadolint/hadolint/releases/download/v1.16.3/hadolint-Linux-x86_64
 
+
+docker login -u 199420172020 -p samehmahmoudgaber
+
+

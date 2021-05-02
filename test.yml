@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: "2021-05-02T17:49:51Z"
+  labels:
+    run: mypod
+  managedFields:
+  - apiVersion: v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:labels:
+          .: {}
+          f:run: {}
+      f:spec:
+        f:externalTrafficPolicy: {}
+        f:ports:
+          .: {}
+          k:{"port":8000,"protocol":"TCP"}:
+            .: {}
+            f:port: {}
+            f:protocol: {}
+            f:targetPort: {}
+        f:selector:
+          .: {}
+          f:run: {}
+        f:sessionAffinity: {}
+        f:type: {}
+    manager: kubectl
+    operation: Update
+    time: "2021-05-02T17:49:50Z"
+  name: mypod
+  namespace: default
+  resourceVersion: "3033"
+  uid: 4326e7c3-b3ce-4697-bcc8-b889a38184fd
+spec:
+  clusterIP: 10.103.39.172
+  clusterIPs:
+  - 10.103.39.172
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 8000
+    port: 8000
+    protocol: TCP
+    targetPort: 80
+  selector:
+    run: mypod
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
